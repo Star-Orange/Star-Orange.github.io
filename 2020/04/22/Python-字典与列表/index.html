@@ -17,11 +17,13 @@
 <meta property="og:site_name" content="Orange">
 <meta property="og:description" content="Python 字典与列表">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://q9a5jlvhf.sabkt.gdipper.com/pythonlist_add_1.png">
 <meta property="article:published_time" content="2020-04-22T01:20:29.000Z">
-<meta property="article:modified_time" content="2020-04-22T01:50:14.456Z">
+<meta property="article:modified_time" content="2020-04-24T14:10:50.118Z">
 <meta property="article:author" content="Stanr Orange">
 <meta property="article:tag" content="随笔">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://q9a5jlvhf.sabkt.gdipper.com/pythonlist_add_1.png">
   
     <link rel="alternative" href="/atom.xml" title="Orange" type="application/atom+xml">
   
@@ -252,7 +254,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">168字</span>
+      <span class="post-count">665字</span>
     </span>
   </span>
 
@@ -261,7 +263,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">1分</span>
+      <span class="post-count">2分</span>
     </span>
   </span>
 </div>
@@ -274,9 +276,8 @@
     
     <h1 id="Python-字典与列表"><a href="#Python-字典与列表" class="headerlink" title="Python 字典与列表"></a>Python 字典与列表</h1><a id="more"></a> 
 <h2 id="列表-list"><a href="#列表-list" class="headerlink" title="列表 (list)"></a>列表 (list)</h2><h3 id="列表的基本操作"><a href="#列表的基本操作" class="headerlink" title="列表的基本操作"></a>列表的基本操作</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">#列表的取值  变量 &#x3D; 列表变量[索引值]        索引值也分正序和倒序下面[从左到右正序] [从右到左倒序]最右边是[-1]</span><br><span class="line">list1 &#x3D; [&#39;王二&#39; , &#39;张三&#39; , &#39;李四&#39; ,  &#39;王五&#39;]</span><br><span class="line">name_list &#x3D; list1[0]  </span><br><span class="line">neme_list1 &#x3D; list1[-4]</span><br><span class="line">#这里我们来进行一个比较来看看是否正确</span><br><span class="line">compare &#x3D; name_list &#x3D;&#x3D; neme_list1</span><br><span class="line">print(compare)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#范围取值 变量 &#x3D; 列表变量[左范围:右范围]    一般情况都遵循左闭右开</span><br><span class="line">neme_list &#x3D; list1[0 : 2]</span><br><span class="line"></span><br><span class="line"># .index()  用于获取指定元素的索引值</span><br><span class="line">list1_index &#x3D; list1.index(&quot;张三&quot;)</span><br><span class="line">print(list1_index)</span><br></pre></td></tr></table></figure>
-
-
-
+<h2 id="列表的增删查改"><a href="#列表的增删查改" class="headerlink" title="列表的增删查改"></a>列表的增删查改</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">list1 &#x3D; [&#39;王二&#39; , &#39;张三&#39; , &#39;李四&#39; ,  &#39;王五&#39;]</span><br><span class="line">#列表的增操作我们可以用函数.append()	在列表的末端追加一个元素</span><br><span class="line">list1.append(&quot;孙六&quot;)</span><br><span class="line">print(f&quot;新增&#123;list1[4]&#125;,list1的全部数据&#123;list1&#125;&quot;)</span><br><span class="line">print(&#39;&#39;)</span><br><span class="line">#列表的增操作在指定索引上增加元素,注意是直接给填的那个索引值给占了，索引的原数据向后走</span><br><span class="line">list2 &#x3D; [&#39;王二&#39; , &#39;张三&#39; , &#39;李四&#39; ,  &#39;王五&#39;]</span><br><span class="line">list2.insert(2,&#39;程咬金&#39;)</span><br><span class="line">list2.insert(len(list2),&#39;len()读取总长度，并在最后追加&#39;)</span><br><span class="line">print(f&quot;半路增加了一个：&#123;list2[2]&#125;，list2的全部字段：&#123;list2&#125;&quot;)</span><br><span class="line">print(&#39;&#39;)</span><br><span class="line"></span><br><span class="line">#列表的更新(修改)他的取值范围是左闭右开(区间)</span><br><span class="line">list3 &#x3D; [&#39;王二&#39; , &#39;张三&#39; , &#39;李四&#39; ,  &#39;王五&#39;]</span><br><span class="line">list3[0] &#x3D; &#39;大王&#39;</span><br><span class="line">print(&#39;原list3的列表长度为：&#39;,len(list3))</span><br><span class="line">print(f&#39;第一个数是:&#123;list3[0]&#125;,列表的总数为:&#123;list3&#125;&#39;)</span><br><span class="line">list3[1:4] &#x3D; &#39;二狗&#39;,&#39;三典&#39;,&#39;四李&#39;</span><br><span class="line">print(&quot;这是一次list3的范围更新：&#123;0&#125;&quot;.format(list3))</span><br><span class="line">print(&quot; &quot;)</span><br><span class="line"></span><br><span class="line">#范围更新的数据如果超了那会怎么样</span><br><span class="line">list3[1:3] &#x3D; &#39;二狗&#39;,&#39;三典&#39;,&#39;四李&#39;,&#39;五花&#39;</span><br><span class="line">#这里我们看到我们多更新了一个但是他会不会报错呢</span><br><span class="line">#他不会报错，他会在1:3这个范围内进行更新而没有被选中数据这会向后走</span><br><span class="line">print(f&#39;这是一个范围更新原列表的1-3:&#123;list3&#125;我们在来看看他的总长度是否改变了:总长度为：&#123;len(list3)&#125;&#39;)</span><br><span class="line">print(&#39;&#39;)</span><br><span class="line"></span><br><span class="line">#列表的删除的</span><br><span class="line">#第一种按指定的数据删除</span><br><span class="line">list3.remove(&#39;五花&#39;)</span><br><span class="line">print(list3)</span><br><span class="line"></span><br><span class="line">#第二种按索引删除</span><br><span class="line">list3.pop(1)</span><br><span class="line">print(list3)</span><br><span class="line"></span><br><span class="line">#第三种范围删除</span><br><span class="line">list3[1:3] &#x3D; []</span><br><span class="line">print(list3)</span><br></pre></td></tr></table></figure>
+<p><img src="http://q9a5jlvhf.sabkt.gdipper.com/pythonlist_add_1.png" alt="列表"></p>
 
     
 
@@ -445,7 +446,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Python-字典与列表"><span class="toc-number">1.</span> <span class="toc-text">Python 字典与列表</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#列表-list"><span class="toc-number">1.1.</span> <span class="toc-text">列表 (list)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#列表的基本操作"><span class="toc-number">1.1.1.</span> <span class="toc-text">列表的基本操作</span></a></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Python-字典与列表"><span class="toc-number">1.</span> <span class="toc-text">Python 字典与列表</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#列表-list"><span class="toc-number">1.1.</span> <span class="toc-text">列表 (list)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#列表的基本操作"><span class="toc-number">1.1.1.</span> <span class="toc-text">列表的基本操作</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#列表的增删查改"><span class="toc-number">1.2.</span> <span class="toc-text">列表的增删查改</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
